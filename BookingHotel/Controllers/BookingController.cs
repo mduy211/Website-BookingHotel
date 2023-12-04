@@ -122,5 +122,13 @@ namespace BookingHotel.Controllers
             }
         }
 
+
+        public IActionResult payment() {
+            return View();
+        }
+
+        public IActionResult confirm() {
+            return View();
+        }
     }
 }

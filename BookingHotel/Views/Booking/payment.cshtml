@@ -1,0 +1,283 @@
+﻿@{
+    ViewData["Title"] = "Phương thức thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+   .hotel-page-payment{
+       padding-top:100px;
+       padding-bottom:50px;
+   }
+</style>
+<div class="hotel-page-payment">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8">
+                            <div class="hotel-box-content">
+                                <div class="box-menu-tab">
+                                    <h3>Thanh toán qua</h3>
+                                    <ul role="tablist">                <li class="active li_type_2">
+                    <a href="#type_2" aria-controls="type_2" role="tab" data-toggle="tab"> Tại văn phòng </a>
+                </li>                </ul>
+                                </div>
+                                <div class="box-content-tab">
+                                    <div class="hotel-box-full-content"><div class="tab-content hotel-tab-content"><div role="tabpanel" class="tab-pane active" id="type_2">                <div class="count-time">Thanh toán trong vòng <span id="count-down-time-payment-2">04:59:21</span></div>
+                <script>
+                    var time_remain_limit = '04:59:28';
+                    var query_time = {id_tag:'count-down-time-payment-2',time_remain_limit:time_remain_limit,id_panel_content:"type_2"};
+                    APPS_POST_HOTEL.post_hotel_system_count_down_time(query_time);
+                </script>             <div class="box-content">
+                <div class="box-content-top">
+                    <h3>Thanh toán tại văn phòng</h3>
+                    <div class="description">             <div class="box-description">
+                <div class="box-note-shop box-note-default">
+                    <label>Sau khi đặt hàng thành công, bạn có thể đến văn phòng chúng tôi để thanh toán và tiến hành các thủ tục cần thiết. Vui lòng chọn văn phòng gần địa chỉ nhà của bạn nhất.</label>
+                    <div class="box-address">
+                        <ul class="ul-list-address">
+                                            <li> 
+                    <h3><i class="fas fa-map-marker-alt"></i> Hồ Chí Minh</h3>
+                    <h4><i class="fas fa-circle"></i> 190-192 Trần Quý, Phường 06, Quận 11, TP. HCM <span><a href="https://goo.gl/maps/RDdqtSPzbkfpsg7S6" target="_blank"><img src="https://data.vietnambooking.com/common/icon/icon_map_marker.png"></a></span></h4>
+                </li>                <li> 
+                    
+                    <h4><i class="fas fa-circle"></i> 164 Lê Thánh Tôn, Phường Bến Thành, Quận 1, TP. HCM <span><a href="https://goo.gl/maps/hH6fnY1MgzGAdH2z7" target="_blank"><img src="https://data.vietnambooking.com/common/icon/icon_map_marker.png"></a></span></h4>
+                </li>                <li> 
+                    
+                    <h4><i class="fas fa-circle"></i> 54 Phạm Hồng Thái, Phường Bến Thành, Quận 1, TP. HCM <span><a href="https://g.page/vietnam-booking?share" target="_blank"><img src="https://data.vietnambooking.com/common/icon/icon_map_marker.png"></a></span></h4>
+                </li>               
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div></div>
+                </div>
+                <div class="box-content-bottom">
+                                <div class="box-response-submit-payment"></div>
+            <form method="post" id="form-hotel-submit-payment-office" class="box-submit-form submit-payment" novalidate="novalidate">
+                <div class="col-lg-12 col-md-12">
+                    <div class="alert alert-danger" style="display:none;"><button class="close" data-close="alert"></button> Xin vui lòng kiểm tra nhập đầy đủ thông tin. </div>
+                    <div class="alert alert-success" style="display:none;"><button class="close" data-close="alert"></button> Thật tuyệt vời, bạn đã cập nhật thành công! </div>
+                </div>
+                <input type="hidden" name="payment_type" value="office">
+                <input type="hidden" name="code_book" value="VNBKH44816743464">
+                <input type="hidden" class="input-val-code-voucher" name="code_voucher" value="">
+                
+                
+                
+             
+                
+                
+                <div class="type-checkbox input-item form-group">
+                    <input checked="" class="form-check-input" required="" id="chk-agree-rule-office" name="chk_agree_rule" type="checkbox" value="1"> <label for="chk-agree-rule-office"> Tôi đồng ý với các điều khoản đặt hàng của Vietnam Booking</label>
+                </div>
+                <div class="box-submit">
+                    <button type="submit" class="btn-submit-payment">Xác nhận</button>
+                </div>
+                
+@*                 <div class="box-security"> <i class="icon-vnbk icon-lock-432-48"></i> Security Payment </div>
+ *@            </form>
+            <script>
+                $(".chk-toggle-export-order-office").click(function(){
+                    var is_checked = $(this).is(":checked");
+                    if(is_checked) { $(".box-info-export-office").removeClass("hidden"); $(".box-info-export-office input").attr("required","required"); }
+                    else { $(".box-info-export-office").addClass("hidden");$(".box-info-export-office input").removeAttr("required"); }
+                });
+                APPS_BASE.base_system_submit_form({id_form:"#form-hotel-submit-payment-office",action:"hotel_booking_ajax_submit_payment"});
+            </script>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+                        @* <div class="box-expired-payment hidden">
+                <h3>Hết thời gian thanh toán</h3>
+                <h4>Hãy chọn phương thức thanh toán khác<br> để không làm gián đoạn quá trình đặt chỗ của bạn.</h4>
+                <div class="box-img"><img src="https://data.vietnambooking.com/business/hotel/banner/book_timeout.svg" alt="time out"></div>
+            </div> *@</div><div role="tabpanel" class="tab-pane " id="type_1">                <div class="count-time">Thanh toán trong vòng <span id="count-down-time-payment-1">04:59:21</span></div>
+                <script>
+                    var time_remain_limit = '04:59:28';
+                    var query_time = {id_tag:'count-down-time-payment-1',time_remain_limit:time_remain_limit,id_panel_content:"type_1"};
+                    APPS_POST_HOTEL.post_hotel_system_count_down_time(query_time);
+                </script>             <div class="box-content">
+                <div class="box-content-top">
+                    <h3>Bạn có thể thanh toán bằng tiền mặt tại nhà</h3>
+                    <div class="description">             <div class="box-description">
+                <div class="box-note-shop box-note-default">
+                    <label>Lưu ý trước khi thanh toán</label>
+                    <ul class="ul-note">
+                        <li>Vietnam Booking hỗ trợ giao vé MIỄN PHÍ.</li>
+                        <li>Hỗ trợ giao vé MIỄN PHÍ chỉ áp dụng cho các địa chỉ tại khu vực nội thành TP Hồ Chí Minh, Đà Nẵng và Hà Nội.</li>
+                    </ul>
+                </div>
+            </div></div>
+                </div>
+                <div class="box-content-bottom">
+                                <div class="box-response-submit-payment"></div>
+            <form method="post" id="form-hotel-submit-payment-home" class="box-submit-form submit-payment" novalidate="novalidate">
+                <div class="col-lg-12 col-md-12">
+                    <div class="alert alert-danger" style="display:none;"><button class="close" data-close="alert"></button> Xin vui lòng kiểm tra nhập đầy đủ thông tin. </div>
+                    <div class="alert alert-success" style="display:none;"><button class="close" data-close="alert"></button> Thật tuyệt vời, bạn đã cập nhật thành công! </div>
+                </div>
+                <input type="hidden" name="payment_type" value="home">
+                <input type="hidden" name="code_book" value="VNBKH44816743464">
+                <input type="hidden" class="input-val-code-voucher" name="code_voucher" value="">
+                
+                
+                
+                
+                <div class="type-checkbox input-item form-group ">
+                    <label><input class="chk-toggle-export-order-home" name="chk_toggle_export_order" type="checkbox" value="1"> Tôi muốn xuất hóa đơn</label>
+                </div>
+                
+                <div class="box-info-export-home hidden">
+                                    <div class="input-item form-group ">
+                    <label for="txt_company_home">Tên công ty <span class="required">*</span></label>
+                    <input id="txt_company_home" autocomplete="off" type="text" class="form-control" name="txt_company">
+                    <span class="help-block"></span>
+                </div>                <div class="input-item form-group ">
+                    <label for="txt_address_company_home">Địa chỉ <span class="required">*</span></label>
+                    <input id="txt_address_company_home" autocomplete="off" type="text" class="form-control" name="txt_address_company">
+                    <span class="help-block"></span>
+                </div>                <div class="input-item form-group ">
+                    <label for="txt_id_vat_home">Mã số thuế VAT <span class="required">*</span></label>
+                    <input id="txt_id_vat_home" autocomplete="off" type="text" class="form-control" name="txt_id_vat">
+                    <span class="help-block"></span>
+                </div>                <div class="input-item form-group ">
+                    <label for="txt_address_received_home">Địa chỉ nhận hóa đơn <span class="required">*</span></label>
+                    <input id="txt_address_received_home" autocomplete="off" type="text" class="form-control" name="txt_address_received">
+                    <span class="help-block"></span>
+                </div>
+                </div>
+                
+                <div class="type-checkbox input-item form-group">
+                    <input checked="" class="form-check-input" required="" id="chk-agree-rule-home" name="chk_agree_rule" type="checkbox" value="1"> <label for="chk-agree-rule-home"> Tôi đồng ý với các điều khoản đặt hàng của Vietnam Booking</label>
+                </div>
+                <div class="box-submit">
+                    <button type="submit" class="btn-submit-payment">Xác nhận</button>
+                </div>
+                
+                <div class="box-security"> <i class="icon-vnbk icon-lock-432-48"></i> Security Payment </div>
+            </form>
+            <script>
+                $(".chk-toggle-export-order-home").click(function(){
+                    var is_checked = $(this).is(":checked");
+                    if(is_checked) { $(".box-info-export-home").removeClass("hidden"); $(".box-info-export-home input").attr("required","required"); }
+                    else { $(".box-info-export-home").addClass("hidden");$(".box-info-export-home input").removeAttr("required"); }
+                });
+                APPS_BASE.base_system_submit_form({id_form:"#form-hotel-submit-payment-home",action:"hotel_booking_ajax_submit_payment"});
+            </script>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+                        <div class="box-expired-payment hidden">
+                <h3>Hết thời gian thanh toán</h3>
+                <h4>Hãy chọn phương thức thanh toán khác<br> để không làm gián đoạn quá trình đặt chỗ của bạn.</h4>
+                <div class="box-img"><img src="https://data.vietnambooking.com/business/hotel/banner/book_timeout.svg" alt="time out"></div>
+            </div></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                                        <div class="hotel-page-sidebar">
+                            <div class="hotel-page-sidebar">
+                <div class="box-summary">
+                    <div class="summary-main"> 
+                        <div class="box-img">
+                            <img class="" src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_353355/mini_d876d86e587c9a76cdaa1ceb46d2b483.jpg" alt="">
+                        </div>
+                        <div class="box-title">
+                            <h3>Khách sạn Vias Vũng Tàu</h3>
+                            <div class="description">  Junior Deluxe City View Junior Deluxe City View room  </div>
+                        </div>
+                    </div>
+                    <div class="summary-total">
+                        <table class="tlb-info">
+                                        <tbody><tr>
+                <td> <div class="title type-code">Mã đơn hàng </div> </td>
+                <td> <div class="info-right type-code"> VNBKH44816743464 </div> </td>
+            </tr>
+                            <tr>
+                                <td> <div class="title"><i class="icon-vnbk icon-calendar-from-570-48 "></i> Ngày nhận phòng </div> </td>
+                                <td> <div class="info-right"> 23/11/2023 </div> </td>
+                            </tr>
+                            <tr>
+                                <td> <div class="title"><i class="icon-vnbk icon-calendar-to-612-48 "></i> Ngày trả phòng </div> </td>
+                                <td> <div class="info-right">  24/11/2023 </div> </td>
+                            </tr>
+                            <tr>
+                                <td> <div class="title"><i class="icon-vnbk icon-passenger-528-96"></i> Số khách phòng </div> </td>
+                                <td> <div class="info-right"> 1 khách, 1 phòng </div> </td>
+                            </tr>
+                        </tbody></table>                        
+                    </div>
+                    <div class="summary-total">
+                        <table class="tlb-info tlb-info-price">
+                            <tbody><tr>
+                                <td> <div class="title">1 phòng x 1 đêm </div> </td>
+                                <td> <div class="info-right">2,875,000 VND</div> </td>
+                            </tr>
+                                            <tr>
+                    <td> <div class="title box-promo">Promo giảm 40%</div> </td>
+                    <td> <div class="info-right">- 1,150,000 VND</div> </td>
+                </tr>
+                            
+                                            <tr class="tr-voucher hidden">
+                    <td> <div class="title">Mã giảm giá </div> </td>
+                    <td> <div class="info-right">0 VND</div> <input class="txt-total-price-hidden" type="hidden" value="1725000"> </td>
+                </tr>
+                            <tr>
+                                <td> <div class="title type-tax">Phí dịch vụ</div> </td>
+                                <td> <div class="info-right type-tax">MIỄN PHÍ</div> </td>
+                            </tr>
+                            <tr class="tr-total">
+                                <td> <div class="title">Tổng tiền</div> </td>
+                                <td> <div data-price-format="1,725,000 VND" class="info-right">1,725,000 VND</div> </td>
+                            </tr>
+                            <tr class="tr-note">
+                                <td colspan="2"> 
+                                    <div class="alert alert-warning">
+                                        Booking của bạn đang được chờ xác nhận. Tư vấn viên sẽ sớm liên hệ với bạn
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                        <div class="box-hotline"><i class="icon-vnbk icon-phone-96-48"></i> Gọi <a href="tel:19004698">1900 4698</a> để được hỗ trợ 24/7</div>
+                    </div>
+                
+                </div>
+            </div>
+                @* <div class="box-voucher">             <div class="box-container-promo-voucher">
+                <div class="box-promo-voucher">
+                    <div class="box-toggle-checkbox"><i class="fa fa-toggle-off"></i> <span>Nhập mã giảm giá</span></div>
+                    <div class="box-input-voucher hidden">
+                        <input type="text" class="form-control" placeholder="Nhập vào mã giảm giá">
+                        <button>Áp dụng mã</button>
+                    </div>
+                    <div class="box-note-voucher"></div>
+                </div>
+                <div class="box-promo-voucher-active hidden">
+                    <div class="box-name-voucher"><span class="name-voucher"></span> <span class="price-voucher"></span> 
+                    </div>
+                    <button class="btn-cancel-using-voucher">Hủy</button>
+                </div>
+            </div> </div> *@
+            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="~/js/cart.js"></script>
+<!--================ End footer Area  =================-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="~/js/jquery-3.2.1.min.js"></script>
+<script src="~/js/popper.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="~/js/jquery.ajaxchimp.min.js"></script>
+<script src="~/js/mail-script.js"></script>
+<script src="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="~/vendors/nice-select/js/jquery.nice-select.js"></script>
+<script src="~/js/mail-script.js"></script>
+<script src="~/js/stellar.js"></script>
+<script src="~/vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="~/js/custom.js"></script>

@@ -1,4 +1,238 @@
 ﻿﻿@{
-    ViewData["Title"] = "Tài khoản";
+    ViewData["Title"] = "Thông tin tài khoản";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<style>
+    .box-full-manage {
+        background: #edeef1;
+        padding: 120px 0px;
+    }
+
+    .col-md-3 {
+        width: 25%;
+    }
+
+    .col-lg-9 {
+        width: 75%
+    }
+
+    
+
+    .box-full-manage .user-box-full-main .user-box-item {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .points-box-table-score {
+        background: #0064d2;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+        .points-box-table-score h3 {
+            margin: 0px;
+            padding: 0px;
+            display: inline-block;
+            color: #ffffff;
+            font-size: 16px;
+            font-family: 'os_semi_bold';
+        }
+
+        .points-box-table-score .box-title span {
+            font-size: 14px;
+            color: #ffffff;
+            float: right;
+            cursor: pointer;
+        }
+
+        .points-box-table-score .box-score {
+            margin-top: 22px;
+            font-size: 20px;
+            color: #fff;
+            font-family: 'os_semi_bold';
+        }
+
+            .points-box-table-score .box-score img {
+                position: relative;
+                top: -2px;
+            }
+
+    .box-full-manage .user-box-full-main .user-box-item h2 {
+        margin: 0px;
+        padding: 0px;
+        font-size: 20px;
+        color: #22313f;
+        font-family: 'os_semi_bold';
+        margin-bottom: 10px;
+    }
+
+    .box-full-manage .user-box-full-main .user-box-item .box-content {
+        padding-top: 15px;
+    }
+
+    .box-content-gifts ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+        .box-content-gifts ul li {
+            list-style: none;
+            display: inline-block;
+            margin: 10px;
+            border-radius: 8px;
+            border: solid 1px #ebedf6;
+            min-width: calc(33% - 20px);
+            vertical-align: top;
+            text-align: center;
+            padding: 15px;
+        }
+
+            .box-content-gifts ul li .box-title {
+                font-size: 14px;
+                color: #22313f;
+                font-family: 'os_semi_bold';
+                text-align: left;
+                margin-bottom: 15px;
+                display: block;
+            }
+
+                .box-content-gifts ul li .box-title span {
+                    background: #ebf1ff;
+                    color: #0064d2;
+                    font-family: 'os_semi_bold';
+                    display: inline-block;
+                    padding: 4px 10px;
+                    border-radius: 16px;
+                }
+
+            .box-content-gifts ul li .box-img {
+                height: 100px;
+                overflow: hidden;
+            }
+
+            .box-content-gifts ul li .box-gifts-action {
+                margin-top: 20px;
+            }
+
+                .box-content-gifts ul li .box-gifts-action .btn-submit-form-gifts[disabled] {
+                    opacity: 0.5;
+                }
+
+                .box-content-gifts ul li .box-gifts-action .btn-submit-form-gifts {
+                    background: #0064d2;
+                    border: 0px;
+                    color: #fff;
+                    width: calc(100% - 40px);
+                    border-radius: 5px;
+                    height: 43px;
+                    font-family: 'os_regular';
+                }
+</style>
+<div class="box-full-manage">
+    <div class="container">
+        <div class="col-ld-3 col-md-3">
+            <div class="box-sidebar-user">
+                <div class="box-sidebar user-inner">
+                    <div class="box-info-top">
+                        <div class="box-img"> <img src="" alt="avatar"> </div>
+                        <div class="box-info">
+                            <div class="fullname">Hữu Đan</div>
+                            <div class="email-phone">akneon1@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="box-info-menu">
+                        <ul>
+                            <li class="type-item active"><a href="https://www.vietnambooking.com/user-manage?type=my-points"><img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="Điểm đổi quà"> Điểm đổi quà </a></li>
+                            <li class="type-cross"></li>
+                            <li class="type-item "><a href="https://www.vietnambooking.com/user-manage?type=my-order"><img src="https://data.vietnambooking.com/user/svg/icon_order.svg" alt="Đặt chỗ của tôi"> Đặt chỗ của tôi </a></li>
+                            <li class="type-item "><a href="https://www.vietnambooking.com/user-manage?type=favorite"><img src="https://data.vietnambooking.com/user/svg/icon_favorite.svg" alt="Sản phẩm yêu thích"> Sản phẩm yêu thích </a></li>
+                            <li class="type-cross"></li>
+                            <li class="type-item "><a asp-controller="profile" asp-action="index"><img src="https://data.vietnambooking.com/user/svg/icon_account.svg" alt="Tài khoản"> Tài khoản </a></li>
+                            <li class="type-item "><a onclick="$('.user-box-popup-logout').removeClass('hidden');$('body').addClass('user-popup-logout');" href="javascript:void(0);"><img src="https://data.vietnambooking.com/user/svg/icon_logout.svg" alt="Đăng xuất"> Đăng xuất </a></li></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- column --->
+        <div class="col-lg-9 col-md-9">
+            <div class="user-box-full-main">
+                <div class="user-box-item">
+
+
+                    <div class="box-content">
+                        <div class="points-box-table-score">
+                            <div class="box-title">
+                                <h3>Điểm Gpoint của bạn</h3>
+                                <span>Lịch sử nhận điểm</span>
+                            </div>
+
+                            <div class="box-score">
+                                <img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="score alt"> 0
+                            </div>
+
+                        </div>
+                    </div>
+                </div>                <div class="user-box-item">
+                    <h2 class="title">Đổi điểm Gpoint lấy quà tặng</h2>
+
+                    <div class="box-content">
+                        <div class="box-content-gifts">
+                            <ul class="ul-list-gifts">
+                                <li>
+                                    <div class="box-title"> Sổ tay <span class="price pull-right"><img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="coin"> 8</span> </div>
+                                    <div class="box-img"><img src="https://www.vietnambooking.com/wp-content/themes/vietnambooking_master/images/user/gifts/book.png" alt="Sổ tay"></div>
+                                    <div class="box-gifts-action"> <button disabled="" data-title="Sổ tay" data-key="book" class="btn-submit-form-gifts disabled">Đổi quà</button> </div>
+                                </li>
+                                <li>
+                                    <div class="box-title"> Nón <span class="price pull-right"><img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="coin"> 14</span> </div>
+                                    <div class="box-img"><img src="https://www.vietnambooking.com/wp-content/themes/vietnambooking_master/images/user/gifts/hat.png" alt="Nón"></div>
+                                    <div class="box-gifts-action"> <button disabled="" data-title="Nón" data-key="hat" class="btn-submit-form-gifts disabled">Đổi quà</button> </div>
+                                </li>
+                                <li>
+                                    <div class="box-title"> Áo thun <span class="price pull-right"><img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="coin"> 25</span> </div>
+                                    <div class="box-img"><img src="https://www.vietnambooking.com/wp-content/themes/vietnambooking_master/images/user/gifts/cloth.png" alt="Áo thun"></div>
+                                    <div class="box-gifts-action"> <button disabled="" data-title="Áo thun" data-key="cloth" class="btn-submit-form-gifts disabled">Đổi quà</button> </div>
+                                </li>
+                                <li>
+                                    <div class="box-title"> Áo mưa <span class="price pull-right"><img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="coin"> 29</span> </div>
+                                    <div class="box-img"><img src="https://www.vietnambooking.com/wp-content/themes/vietnambooking_master/images/user/gifts/raincoat.png" alt="Áo mưa"></div>
+                                    <div class="box-gifts-action"> <button disabled="" data-title="Áo mưa" data-key="raincoat" class="btn-submit-form-gifts disabled">Đổi quà</button> </div>
+                                </li>
+                                <li>
+                                    <div class="box-title"> Túi sách du lịch <span class="price pull-right"><img src="https://data.vietnambooking.com/user/svg/icon_coin.svg" alt="coin"> 55</span> </div>
+                                    <div class="box-img"><img src="https://www.vietnambooking.com/wp-content/themes/vietnambooking_master/images/user/gifts/balo.png" alt="Túi sách du lịch"></div>
+                                    <div class="box-gifts-action"> <button disabled="" data-title="Túi sách du lịch" data-key="balo" class="btn-submit-form-gifts disabled">Đổi quà</button> </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>            <script>APPS_USER.user_system_my_points();</script>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/js/cart.js"></script>
+<!--================ End footer Area  =================-->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="~/js/jquery-3.2.1.min.js"></script>
+<script src="~/js/popper.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="~/js/jquery.ajaxchimp.min.js"></script>
+<script src="~/js/mail-script.js"></script>
+<script src="~/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="~/vendors/nice-select/js/jquery.nice-select.js"></script>
+<script src="~/js/mail-script.js"></script>
+<script src="~/js/stellar.js"></script>
+<script src="~/vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="~/js/custom.js"></script>
